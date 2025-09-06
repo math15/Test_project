@@ -285,7 +285,7 @@ describe('Order Assignment App - Automated Tests', () => {
         .send({
           username: process.env.ADMIN_USERNAME || 'admin',
           password: process.env.ADMIN_PASSWORD || 'admin123'
-        });
+        }); 
 
       await agent
         .post('/orders')
@@ -308,7 +308,7 @@ describe('Order Assignment App - Automated Tests', () => {
       ];
 
       await Promise.all(promises);
-        
+
       const [finalOrder] = await db.execute(
         'SELECT * FROM lead_orders WHERE id = ?',
         [orderId]
